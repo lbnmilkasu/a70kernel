@@ -4,9 +4,12 @@
 
 #include <linux/types.h>
 
+/* Userspace gets sched_param from libc's <sched.h>. */
+#ifdef __KERNEL__
 struct sched_param {
 	int sched_priority;
 };
+#endif
 
 #define SCHED_ATTR_SIZE_VER0	48	/* sizeof first published struct */
 
